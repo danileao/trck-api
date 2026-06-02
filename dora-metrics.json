@@ -1,12 +1,12 @@
 {
-  "deployment_frequency": 8.0,
-  "total_deploys": 8,
-  "lead_time_median_hours": 29.1,
-  "lead_time_prs_analyzed": 13,
+  "deployment_frequency": 6.0,
+  "total_deploys": 6,
+  "lead_time_median_hours": null,
+  "lead_time_prs_analyzed": 0,
   "change_failure_rate": 0.0,
   "failed_deploys": 0,
-  "mttr_hours": 0,
+  "mttr_hours": 0.0,
   "period_days": 30,
-  "owner": "fin",
-  "repo": "transactionify-api"
+  "owner": "danileao",
+  "repo": "trck-api"
 }
