@@ -1,26 +1,26 @@
-## 📋 Descrição
-{WORK_ID}: **Descreva as alterações aqui**
+## Description
+{WORK_ID}: **Describe your changes here**
 
-## 🔄 Tipo de Mudança
-- [ ] Nova Feature
-- [ ] Correção de Bug
-- [ ] Refatoração
-- [ ] Documentação
-- [ ] Atualização de Dependência
+## Type of Change
+- [ ] New Feature
+- [ ] Bug Fix
+- [ ] Refactor
+- [ ] Documentation
+- [ ] Dependency Update
 
-## 📊 Impacto DORA
-- **Frequência de Deploy:**
-- **Lead Time para Mudanças:**
-- **Taxa de Falha em Mudanças:**
-- **Tempo Médio para Recuperação (MTTR):**
+## DORA Impact
+- **Deployment Frequency:**
+- **Lead Time for Changes:**
+- **Change Failure Rate:**
+- **Mean Time to Recovery (MTTR):**
 
-## ✅ Testes
-- [ ] Testes Unitários
-- [ ] Testes de Integração
-- [ ] Testes Manuais
+## Testing
+- [ ] Unit Tests
+- [ ] Integration Tests
+- [ ] Manual Tests
 
-## 🔐 Governance & Audit Trail (SOC 2)
+## Governance & Audit Trail (SOC 2)
 - **Work ID:** {WORK_ID}
-- **Time:** FIN
-- **Aprovações Necessárias:** 2
-- **Two-Reviewer Rule:** OBRIGATÓRIO
+- **Team:** FIN
+- **Required Approvals:** 2
+- **Two-Reviewer Rule:** ENFORCED
