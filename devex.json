@@ -23,5 +23,11 @@
             "accountId": "333333333333",
             "region": "us-west-2"
         }
+    },
+    "cliSource": "",
+    "testStages": {
+        "unit": "pnpm test:ci",
+        "pbt": "pnpm test:pbt",
+        "contract": "pnpm test:contract"
     }
 }
