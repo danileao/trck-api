@@ -1,0 +1,15 @@
+{
+  "name": "transactionify-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devex:generate": "devex-framework"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "devex-framework": "link:../devex-framework"
+  }
+}

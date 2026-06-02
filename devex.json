@@ -1,0 +1,13 @@
+{
+    "name": "Transactionify Payment Gateway",
+    "environment": "production",
+    "buildSteps": [
+        "pnpm install",
+        "pnpm test:ci"
+    ],
+    "governance": {
+        "enforceWorkId": true,
+        "requiredApprovals": 2,
+        "teamOwner": "FIN"
+    }
+}
