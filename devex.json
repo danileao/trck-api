@@ -24,7 +24,7 @@
             "region": "us-west-2"
         }
     },
-    "cliSource": "git+https://github.com/danileao/devex-cli@v0.1.0",
+    "cliSource": "git+https://github.com/danileao/devex-cli@v0.2.0",
     "testStages": {
         "unit": "pnpm test:ci",
         "pbt": "pnpm test:pbt",

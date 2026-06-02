@@ -34,7 +34,7 @@ jobs:
         run: |
           pip install uv
           rm -rf .venv ./devex-cli/.venv
-          pip install "devex-cli@git+https://github.com/danileao/devex-cli@v0.1.0"
+          pip install "devex-cli@git+https://github.com/danileao/devex-cli@v0.2.0"
 
       - name: Verify Shift-Left Branch Governance
         run: |
