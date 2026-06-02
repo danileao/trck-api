@@ -1,6 +1,6 @@
 {
-  "deployment_frequency": 6.0,
-  "total_deploys": 6,
+  "deployment_frequency": 8.0,
+  "total_deploys": 8,
   "lead_time_median_hours": null,
   "lead_time_prs_analyzed": 0,
   "change_failure_rate": 0.0,
