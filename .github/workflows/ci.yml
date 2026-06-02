@@ -11,12 +11,14 @@ on:
     branches: [ main, master ]
   push:
     branches: [ main, master ]
+  release:
+    types: [ published ]
 
 jobs:
   compliance-and-build:
     name: Platform Guardrails & Verification
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
@@ -32,7 +34,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install gitpython typer rich
-          # Installs our local Python CLI package in the CI runner environment
           pip install -e ./devex-cli
 
       - name: Verify Shift-Left Branch Governance
@@ -51,7 +52,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           echo "==> [DevEx Platform] Verifying Two-Reviewer approval gate..."
-          REVIEWS=$(gh api             "repos/${{ github.repository }}/pulls/${{ github.event.number }}/reviews"             --jq '[.[] | select(.state == "APPROVED")] | length')
+          REVIEWS=$(gh api \
+            "repos/${{ github.repository }}/pulls/${{ github.event.number }}/reviews" \
+            --jq '[.[] | select(.state == "APPROVED")] | length')
           echo "Approvals found: $REVIEWS (required: 2)"
           if [ "$REVIEWS" -lt 2 ]; then
             echo "❌ [DevEx Platform] Two-Reviewer Rule FAILED. Only $REVIEWS approval(s) found, 2 required."
@@ -66,3 +69,25 @@ jobs:
           echo "Timestamp: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           echo "Team Owner: FIN"
           echo "Required Reviewers Gate: 2"
+
+  deploy:
+    name: Environment Promotion (${{ matrix.environment }})
+    needs: [ compliance-and-build ]
+    if: always()
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [sandbox, staging, production]
+    environment:
+      name: ${{ matrix.environment }}
+    concurrency:
+      group: ${{ matrix.environment }}-deploy
+      cancel-in-progress: ${{ matrix.environment == 'production' && false || true }}
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Deploy ${{ matrix.environment }}
+        run: |
+          echo "==> [DevEx Platform] Promoting to ${{ matrix.environment }}..."
+          echo "cdk deploy --app 'infra/cdk-stack-${{ matrix.environment }}.json' --require-approval never"

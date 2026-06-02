@@ -9,5 +9,19 @@
         "enforceWorkId": true,
         "requiredApprovals": 2,
         "teamOwner": "FIN"
+    },
+    "environments": {
+        "sandbox": {
+            "accountId": "111111111111",
+            "region": "us-east-1"
+        },
+        "staging": {
+            "accountId": "222222222222",
+            "region": "us-east-2"
+        },
+        "production": {
+            "accountId": "333333333333",
+            "region": "us-west-2"
+        }
     }
 }
