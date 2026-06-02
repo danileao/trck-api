@@ -33,6 +33,7 @@ jobs:
       - name: Install DevEx Golden Path CLI
         run: |
           pip install uv
+          rm -rf .venv ./devex-cli/.venv
           uv pip install -e ./devex-cli
 
       - name: Verify Shift-Left Branch Governance
